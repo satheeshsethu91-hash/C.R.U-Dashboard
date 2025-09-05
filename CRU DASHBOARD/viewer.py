@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
 import os
 
 st.set_page_config(page_title="Excel Dashboard", layout="wide")
@@ -67,3 +68,4 @@ else:
     if group_col and agg_col:
         pivot_df = df.groupby(group_col)[agg_col].agg(["count", "mean", "sum"]).reset_index()
         st.dataframe(pivot_df, use_container_width=True)
+
